@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com-fz:frozoto1/frozoto1.github.io.git
+	branch = main
