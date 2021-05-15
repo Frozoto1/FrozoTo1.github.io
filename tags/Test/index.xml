@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on 穿云箭</title>
+    <link>https://frozoto1.github.io/tags/Test/</link>
+    <description>Recent content in Test on 穿云箭</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 15 May 2021 21:29:34 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/tags/Test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tomato</title>
+      <link>https://frozoto1.github.io/post/tomato/</link>
+      <pubDate>Sat, 15 May 2021 21:29:34 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/post/tomato/</guid>
+      <description>&lt;h2 id=&#34;介绍番茄的栽培&#34;&gt;介绍番茄的栽培&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://frozoto1.github.io/post/test/</link>
+      <pubDate>Wed, 29 Apr 2020 17:23:46 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/post/test/</guid>
+      <description>&lt;p&gt;This is a test&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

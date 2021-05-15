@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Shell Awk Skill - 穿云箭</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="穿云箭" /><meta name="description" content="大学之道，在明明德，在亲民，在止于至善。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+
+
+<link rel="canonical" href="https://frozoto1.github.io/post/Shell_Awk_Skill/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Shell Awk Skill" />
+<meta property="og:description" content="大学之道，在明明德，在亲民，在止于至善。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://frozoto1.github.io/post/Shell_Awk_Skill/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-04-29T01:37:56&#43;08:00" />
+<meta property="article:modified_time" content="2020-04-29T01:37:56&#43;08:00" />
+
+<meta itemprop="name" content="Shell Awk Skill">
+<meta itemprop="description" content="大学之道，在明明德，在亲民，在止于至善。"><meta itemprop="datePublished" content="2020-04-29T01:37:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-29T01:37:56&#43;08:00" />
+<meta itemprop="wordCount" content="1650">
+<meta itemprop="keywords" content="shell,awk," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Shell Awk Skill"/>
+<meta name="twitter:description" content="大学之道，在明明德，在亲民，在止于至善。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">穿云箭</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">穿云箭</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Shell Awk Skill</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/Linux/"> Linux </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#awk数值计算">awk数值计算</a></li>
+        <li><a href="#awk中引入外部变量">awk中引入外部变量</a></li>
+        <li><a href="#bash-shell-字符串截取">bash shell 字符串截取</a></li>
+        <li><a href="#shell中的数学运算">shell中的数学运算</a></li>
+        <li><a href="#awk排除某列输出">awk排除某列输出</a></li>
+        <li><a href="#awk指定列所有行数值运算文件中所有数值共同与固定值进行算数运算">awk指定列所有行数值运算(文件中所有数值共同与固定值进行算数运算)</a></li>
+        <li><a href="#shell-script-哈希-awk-对数运算">shell script 哈希 awk 对数运算</a></li>
+        <li><a href="#awk-for-if-嵌套">awk for if 嵌套</a></li>
+        <li><a href="#awk-标注满足条件的行">awk 标注满足条件的行</a></li>
+        <li><a href="#30个使用awk的例子">30个使用awk的例子</a></li>
+        <li><a href="#awk个人日志">awk个人日志</a></li>
+        <li><a href="#shell-关联数组associative-array">shell 关联数组(associative array)</a></li>
+        <li><a href="#sed-指定行替换">sed 指定行替换</a></li>
+        <li><a href="#awk子字符串">awk子字符串</a></li>
+        <li><a href="#uniq--c-输出结果格式化">uniq -c 输出结果格式化</a></li>
+        <li><a href="#shell-数组">shell 数组</a></li>
+        <li><a href="#shell中判断文件是否为空">shell中判断文件是否为空</a></li>
+        <li><a href="#shell-echo-和-printf输出">shell echo 和 printf输出</a></li>
+        <li><a href="#shell-中多行注释">shell 中多行注释</a></li>
+        <li><a href="#截取文件指定行">截取文件指定行</a></li>
+        <li><a href="#awk匹配设置大小写不敏感">awk匹配设置大小写不敏感</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>大学之道，在明明德，在亲民，在止于至善。</p>
+<h1 id="linux-shell-command-line"><strong>Linux Shell command line</strong></h1>
+<p><a href="https://www.gnu.org/software/gawk/manual/html_node/Getting-Started.html#Getting-Started">THE awk language</a></p>
+<h3 id="awk数值计算">awk数值计算</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">- 求某一列的和
+awk <span class="s1">&#39;BEGIN{m=0}{m+=$1}END{print m}&#39;</span> test.txt
+- 增加条件判断求列和
+awk <span class="s1">&#39;BEGIN{m=0}{if($8&gt;=5)m+=$8}END{print m}&#39;</span> test.txt
+awk <span class="s1">&#39;BEGIN{m=0;t=0}{if($3&gt;=1551 &amp;&amp; $3&lt;1650 &amp;&amp; $8&gt;5){m+=$7;t+=$8}}END{print m/t}&#39;</span> test.CGmap
+- 求两列和之比
+awk <span class="s1">&#39;BEGIN{m=0;all=0}{m+=$7;all+=$8}END{printf &#34;%.2f\n&#34;,m/all}&#39;</span> test.txt
+- 求某列均值
+awk <span class="s1">&#39;BEGIN{m=0}{m+=$6}END{printf &#34;%.4f\n&#34;,m/NR}&#39;</span> test.txt
+- 条件判断求均值
+awk <span class="s1">&#39;{if($1==0 &amp;&amp; $2 ==0){lev=0}else{lev=$1/($1+$2)}}{print lev}&#39;</span> test.txt
+- 某行第二列到最后一列的和大于某值输出本行
+awk <span class="s1">&#39;{for(i=2;i&lt;=NF;i++) t+=$i; {if(t&gt;20){print $0}}; t=0}&#39;</span> <span class="nv">FS</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> new_chr11_DEG_FPKM.csv
+
+- 某行至少有一个值的大小满足指定的要求输出该行
+awk <span class="s1">&#39;{for(i=1;i&lt;=NF;i++){if($i&gt;=5){print $0;next}}}&#39;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s2">&#34;\t&#34;</span> test.txt
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="awk中引入外部变量">awk中引入外部变量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">i</span><span class="o">=</span><span class="s2">&#34;CHH&#34;</span>
+awk -v <span class="nv">i</span><span class="o">=</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span> <span class="s1">&#39;BEGIN{m=0}{if($8&gt;=5 &amp;&amp; $4==i)m+=$7}END{print m}&#39;</span> test.txt
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="bash-shell-字符串截取">bash shell 字符串截取</h3>
+<p><a href="http://www.cnblogs.com/liuweijian/archive/2009/12/27/1633661.html">blog link</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. basename
+    <span class="nv">test</span><span class="o">=</span><span class="s2">&#34;hello-world&#34;</span>
+    <span class="nb">echo</span> <span class="sb">`</span>basename <span class="si">${</span><span class="nv">test</span><span class="si">}</span> -world<span class="sb">`</span>
+    输出为:hello
+2.
+    <span class="si">${</span><span class="nv">varible</span><span class="p">##*string</span><span class="si">}</span>从左向右截取最后一个string后的字符串
+    <span class="si">${</span><span class="nv">varible</span><span class="p">#*string</span><span class="si">}</span>从左向右截取第一个string后的字符串
+    <span class="si">${</span><span class="nv">varible</span><span class="p">%%string*</span><span class="si">}</span>从右向左截取最后一个string后的字符串
+    <span class="si">${</span><span class="nv">varible</span><span class="p">%string*</span><span class="si">}</span>从右向左截取第一个string后的字符串
+e.g.:
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="http://ol8t44w0x.bkt.clouddn.com/blog/180109/1Dk9I8gG0A.png?imageslim" alt="mark"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">3. <span class="si">${</span><span class="nv">varible</span><span class="p">:</span><span class="nv">n1</span><span class="p">:</span><span class="nv">n2</span><span class="si">}</span> n1为起始截取位置；第一个字符串索引为0；n2为截取字符串的个数
+<span class="nv">test</span><span class="o">=</span><span class="s2">&#34;love-bq&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">test</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span>
+输出为:love
+4. cut
+获取文件名前缀
+ls <span class="p">|</span> cut -d <span class="s2">&#34;.&#34;</span> -f1
+获取文件名后缀
+ls <span class="p">|</span> cut -d <span class="s2">&#34;.&#34;</span> -f2
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shell中的数学运算">shell中的数学运算</h3>
+<p>主要介绍let,expr,bc,awk数值计算</p>
+<ul>
+<li>let 运算量与运算符之间<strong>不允许空格</strong>;<strong>不支持浮点</strong></li>
+<li>expr 运算量与运算符之间<strong>需要空格</strong>；<strong>不支持浮点</strong></li>
+<li>bc <strong>支持浮点数</strong>运算;<strong>空格不敏感</strong></li>
+<li>awk <strong>支持浮点数</strong>运算；<strong>空格不敏感</strong></li>
+</ul>
+<h4 id="bc的使用实例">bc的使用实例</h4>
+<p>代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">a</span><span class="o">=</span><span class="m">2</span>
+<span class="nv">b</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&#34;scale=4;</span><span class="nv">$a</span><span class="s2">/</span><span class="nv">$b</span><span class="s2">&#34;</span><span class="p">|</span>bc
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">.6666
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="awk的使用实例">awk的使用实例</h4>
+<p>代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">a</span><span class="o">=</span><span class="m">2</span>
+<span class="nv">b</span><span class="o">=</span><span class="m">3</span>
+<span class="nv">c</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">d</span><span class="o">=</span><span class="m">6</span>
+awk <span class="s1">&#39;BEGIN{printf &#34;%.4f\n&#34;,(&#39;</span><span class="nv">$a</span><span class="s1">&#39;/&#39;</span><span class="nv">$b</span><span class="s1">&#39;)}&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;==分割==&#39;</span>
+awk <span class="s1">&#39;BEGIN{printf &#34;%.4f\n%.4f\n&#34;,(&#39;</span><span class="nv">$a</span><span class="s1">&#39;/&#39;</span><span class="nv">$b</span><span class="s1">&#39;),(&#39;</span><span class="nv">$c</span><span class="s1">&#39;/&#39;</span><span class="nv">$d</span><span class="s1">&#39;)}&#39;</span>
+awk <span class="s1">&#39;BEGIN{print &#39;</span><span class="nv">$a</span><span class="s1">&#39;/&#39;</span><span class="nv">$b</span><span class="s1">&#39;}&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">0.6667
+<span class="o">==</span><span class="nv">分割</span><span class="o">==</span>
+0.6667
+0.8333
+0.6667
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="awk排除某列输出">awk排除某列输出</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#排除第一列输出其他所有列</span>
+awk <span class="s1">&#39;{$1=&#34;&#34;; print $0}&#39;</span> filename
+<span class="c1">#排除第一，第三列输出其他所有</span>
+awk <span class="s1">&#39;{$1=$3=&#34;&#34;; print $0}&#39;</span> filename
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="awk指定列所有行数值运算文件中所有数值共同与固定值进行算数运算">awk指定列所有行数值运算(文件中所有数值共同与固定值进行算数运算)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&lt;jiawen@mgt bam&gt;<span class="nv">$head</span> -n <span class="m">5</span> a.txt
+Chr10	1	1	<span class="m">2</span>
+Chr10	2	3	<span class="m">1</span>
+Chr10	5	2	<span class="m">2</span>
+Chr10	<span class="m">8</span>
+Chr10	<span class="m">10</span>
+&lt;jiawen@mgt bam&gt;<span class="nv">$map_reads</span><span class="o">=</span><span class="m">4</span>
+&lt;jiawen@mgt bam&gt;<span class="nv">$head</span> -n <span class="m">5</span> a.txt <span class="p">|</span> awk <span class="s1">&#39;{for(i=2;i&lt;=NF;i++){$i=$i*2/&#39;</span><span class="si">${</span><span class="nv">map_reads</span><span class="si">}</span><span class="s1">&#39;}{print $0}}&#39;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s2">&#34;\t&#34;</span>
+Chr10	0.5	0.5	<span class="m">1</span>
+Chr10	1	1.5	0.5
+Chr10	2.5	1	<span class="m">1</span>
+Chr10	<span class="m">4</span>
+Chr10	<span class="m">5</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shell-script-哈希-awk-对数运算">shell script 哈希 awk 对数运算</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nv">name</span><span class="o">=(</span>mil_sRNA_21_reads_pos_lf-1.txt mil_sRNA_21_reads_pos_lf-2.txt mil_sRNA_21_reads_pos_wt.txt mil_sRNA_22_reads_pos_lf-1.txt mil_sRNA_22_reads_pos_lf-2.txt mil_sRNA_22_reads_pos_wt.txt mil_sRNA_24_reads_pos_lf-1.txt mil_sRNA_24_reads_pos_lf-2.txt mil_sRNA_24_reads_pos_wt.txt<span class="o">)</span>
+<span class="c1">#</span>
+<span class="nb">declare</span> -A map_reads_dict
+<span class="c1">#</span>
+<span class="nv">map_reads_dict</span><span class="o">=([</span>mil_sRNA_21_reads_pos_lf-1.txt<span class="o">]=</span><span class="m">11232292</span> <span class="o">[</span>mil_sRNA_21_reads_pos_lf-2.txt<span class="o">]=</span><span class="m">10112485</span> <span class="o">[</span>mil_sRNA_21_reads_pos_wt.txt<span class="o">]=</span><span class="m">10430005</span> <span class="o">[</span>mil_sRNA_22_reads_pos_lf-1.txt<span class="o">]=</span><span class="m">11232292</span> <span class="o">[</span>mil_sRNA_22_reads_pos_lf-2.txt<span class="o">]=</span><span class="m">10112485</span> <span class="o">[</span>mil_sRNA_22_reads_pos_wt.txt<span class="o">]=</span><span class="m">10430005</span> <span class="o">[</span>mil_sRNA_24_reads_pos_lf-1.txt<span class="o">]=</span><span class="m">11232292</span> <span class="o">[</span>mil_sRNA_24_reads_pos_lf-2.txt<span class="o">]=</span><span class="m">10112485</span> <span class="o">[</span>mil_sRNA_24_reads_pos_wt.txt<span class="o">]=</span>10430005<span class="o">)</span>
+<span class="c1">#</span>
+<span class="k">for</span> i in <span class="sb">`</span><span class="nb">eval</span> <span class="nb">echo</span> <span class="o">{</span>0..<span class="k">$((</span><span class="si">${#</span><span class="nv">name</span><span class="p">[*]</span><span class="si">}</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="o">}</span><span class="sb">`</span>
+<span class="k">do</span>
+    <span class="nv">oname</span><span class="o">=</span>NOR_<span class="si">${</span><span class="nv">name</span><span class="p">[i]</span><span class="si">}</span>
+    awk -v <span class="nv">map_reads</span><span class="o">=</span><span class="si">${</span><span class="nv">map_reads_dict</span><span class="p">[</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">name</span><span class="p">[i]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">]</span><span class="si">}</span> <span class="s1">&#39;{for(j=1;j&lt;=NF-1;j++){$j=log($j*1000000/map_reads)}{print $0}}&#39;</span> <span class="nv">FS</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s2">&#34;\t&#34;</span> <span class="si">${</span><span class="nv">name</span><span class="p">[i]</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">oname</span><span class="si">}</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="awk-for-if-嵌套">awk for if 嵌套</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">awk <span class="s1">&#39;{for(i=1;i&lt;=NF;i++)if($i&gt;10)print $0}&#39;</span> <span class="nv">FS</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> <span class="nv">OFS</span><span class="o">=</span><span class="s2">&#34;,&#34;</span> test.txt
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="awk-标注满足条件的行">awk 标注满足条件的行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat  food_list.txt
+
+No      Item_Name               Price           Quantity
+<span class="m">1</span>       Mangoes                 <span class="nv">$3</span>.45              <span class="m">5</span>
+<span class="m">2</span>       Apples                  <span class="nv">$2</span>.45              <span class="m">25</span>
+<span class="m">3</span>       Pineapples              <span class="nv">$4</span>.45              <span class="m">55</span>
+<span class="m">4</span>       Tomatoes                <span class="nv">$3</span>.45              <span class="m">25</span>
+<span class="m">5</span>       Onions                  <span class="nv">$1</span>.45              <span class="m">15</span>
+<span class="m">6</span>       Bananas                 <span class="nv">$3</span>.45              <span class="m">30</span>
+
+<span class="c1">#星号标记Quantity&lt;=20的行</span>
+awk <span class="s1">&#39;$4 &lt;= 20 { printf &#34;%s\t%s\n&#34;, $0,&#34;*&#34; ; } $4 &gt; 20 { print $0 ;} &#39;</span> food_list.txt
+
+No    Item_Name     Price      Quantity
+<span class="m">1</span>     Mangoes       <span class="nv">$3</span>.45       <span class="m">5</span>    *
+<span class="m">2</span>     Apples        <span class="nv">$2</span>.45      <span class="m">25</span>
+<span class="m">3</span>     Pineapples    <span class="nv">$4</span>.45      <span class="m">55</span>
+<span class="m">4</span>     Tomatoes      <span class="nv">$3</span>.45      <span class="m">25</span>
+<span class="m">5</span>     Onions        <span class="nv">$1</span>.45      <span class="m">15</span>   *
+<span class="m">6</span>     Bananas       <span class="nv">$3</span>.45      <span class="m">30</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="30个使用awk的例子">30个使用awk的例子</h3>
+<p><a href="https://likegeeks.com/awk-command/">30 Examples for Awk Command in Text Processing</a></p>
+<h3 id="awk个人日志">awk个人日志</h3>
+<p><a href="http://www.zsythink.net/archives/tag/awk">朱双印的个人日志</a></p>
+<h3 id="shell-关联数组associative-array">shell 关联数组(associative array)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">示例 <span class="m">1</span>
+test.sh 文件的内容如下
+<span class="nv">name</span><span class="o">=(</span>jim tom lucy<span class="o">)</span>
+
+<span class="nb">declare</span> -A phone
+<span class="nv">phone</span><span class="o">=([</span>jim<span class="o">]=</span><span class="m">135</span> <span class="o">[</span>tom<span class="o">]=</span><span class="m">136</span> <span class="o">[</span>lucy<span class="o">]=</span>158<span class="o">)</span>
+
+<span class="k">for</span> i in <span class="sb">`</span><span class="nb">eval</span> <span class="nb">echo</span> <span class="o">{</span>0..<span class="k">$((</span><span class="si">${#</span><span class="nv">name</span><span class="p">[*]</span><span class="si">}</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="o">}</span><span class="sb">`</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">[i]</span><span class="si">}</span> phone number is <span class="si">${</span><span class="nv">phone</span><span class="p">[</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">name</span><span class="p">[i]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">]</span><span class="si">}</span>
+<span class="k">done</span>
+
+在命令提示符下输入 ./test.sh，执行结果如下：
+jim phone number is <span class="m">135</span>
+tom phone number is <span class="m">136</span>
+lucy phone number is <span class="m">158</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="sed-指定行替换">sed 指定行替换</h3>
+<pre><code>sed -i '1s/\./_/g' all_FPKM.csv
+</code></pre>
+<h3 id="awk子字符串">awk子字符串</h3>
+<pre><code>awk '{print substr($9,4,14) }' OFS='\t' test.txt
+</code></pre>
+<h3 id="uniq--c-输出结果格式化">uniq -c 输出结果格式化</h3>
+<p>uniq -c 的输出在统计数字之前存在一些空格，将这些空格去除掉，并以Tab作为分隔符</p>
+<pre><code>cut -f 4 kind_NG_IU_DMR.txt | cut -d &quot;;&quot; -f 2 | sort | uniq -c | perl -pe 's/\s+(\d+) (.*)/\1\t\2/'
+</code></pre>
+<h3 id="shell-数组">shell 数组</h3>
+<ol>
+<li>
+<p>定义数组</p>
+<p>myarray=(6 9 10 11)</p>
+</li>
+<li>
+<p>获取数组内所有的元素</p>
+<p>${myarray[*]}</p>
+<p>或</p>
+<p>${myarray[@]}</p>
+</li>
+<li>
+<p>数组长度</p>
+<p>${#myarray[*]}</p>
+</li>
+<li>
+<p>数组值的索引</p>
+<p>i=2</p>
+<p>${myarray[${2}]}</p>
+</li>
+<li>
+<p>数组切片</p>
+<p>${myarray[*]:0:2}</p>
+</li>
+<li>
+<p>数组元素删除</p>
+<p>unset myarray[1] #删除第二个元素</p>
+</li>
+<li>
+<p>数组删除</p>
+<p>unset myarray</p>
+</li>
+<li>
+<p>实例</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">        <span class="c1">#!/bin/bash</span>
+        <span class="nv">myarray</span><span class="o">=(</span><span class="m">6</span> <span class="m">9</span> <span class="m">10</span> 11<span class="o">)</span>
+        <span class="nv">len</span><span class="o">=</span><span class="si">${#</span><span class="nv">myarray</span><span class="p">[*]</span><span class="si">}</span>
+        <span class="c1"># 直接索引数组内的值</span>
+        <span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">myarray</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="k">do</span>
+            <span class="nb">echo</span> <span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+        <span class="k">done</span>
+        <span class="c1"># 通过下标索引数组元素的值</span>
+        <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>0<span class="p">;</span>i&lt;<span class="o">=</span><span class="si">${</span><span class="nv">len</span><span class="si">}</span><span class="p">;</span>i++<span class="o">))</span>
+        <span class="k">do</span>
+            <span class="nb">echo</span> <span class="si">${</span><span class="nv">myarray</span><span class="p">[</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="p">]</span><span class="si">}</span>
+        <span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shell中判断文件是否为空">shell中判断文件是否为空</h3>
+<p>使用test命令</p>
+<p>-s 文件存在且大小不为0，返回True</p>
+<p>-e 文件存在，返回True</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    <span class="c1">#! /bin/sh</span>
+    <span class="k">if</span> <span class="nb">test</span> -s file.txt<span class="p">;</span> <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&#34;hi&#34;</span>
+    <span class="k">else</span>
+            <span class="nb">echo</span> <span class="s2">&#34;empty&#34;</span>
+    <span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shell-echo-和-printf输出">shell echo 和 printf输出</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">echo -e &#34;hello\nOocarain&#34; #-e开启转义
+echo -e &#34;hello\c&#34; #\c不换行
+#
+a=&#34;number&#34;
+b=5
+printf &#34;%s\t%d&#34; ${a} ${b}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="shell-中多行注释">shell 中多行注释</h3>
+<p>1.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;&lt; COMMENT1
+注释内容
+COMMENT1
+</code></pre></td></tr></table>
+</div>
+</div><p>2.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">: &#39;
+注释内容
+&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>e.g.:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;Say Something&#34;</span>
+<span class="s">&lt;&lt;COMMENT1
+</span><span class="s">    your comment 1
+</span><span class="s">    comment 2
+</span><span class="s">    blah
+</span><span class="s">COMMENT1</span>
+<span class="nb">echo</span> <span class="s2">&#34;Do something else&#34;</span>
+
+<span class="c1">#---</span>
+<span class="c1">#OR</span>
+<span class="c1">#---</span>
+<span class="c1">#!/bin/bash</span>
+<span class="nv">foo</span><span class="o">=</span>bar
+: <span class="s1">&#39;
+</span><span class="s1">This is a test comment
+</span><span class="s1">Author foo bar
+</span><span class="s1">Released under GNU
+</span><span class="s1">&#39;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Init...&#34;</span>
+<span class="c1"># rest of script</span>
+<span class="c1"># 注意上面的:和&#39;之间有一个空格</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="截取文件指定行">截取文件指定行</h3>
+<ol>
+<li><code>sed -n '3,10p' test.txt</code> #取3-10行</li>
+<li><code>awk 'NR&gt;=1 &amp;&amp; NR&lt;=5' test.txt</code> #取1-5行</li>
+</ol>
+<h3 id="awk匹配设置大小写不敏感">awk匹配设置大小写不敏感</h3>
+<p><code>awk 'BEGIN{IGNORECASE=1} /amit/' marks.txt</code></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">穿云箭</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-04-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/shell/">shell</a>
+          <a href="/tags/awk/">awk</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E4%B8%87%E4%B8%96%E5%B1%8B/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">万世屋</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/Frozoto1/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/lovebingqian" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://frozoto1.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">穿云箭</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.f3982787498bde362e62b5de507d1714dc64c83a09ad4958598bce2c039150a5.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
