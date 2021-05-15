@@ -6,16 +6,7 @@
     <description>Recent content in Categories on 穿云箭</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 May 2021 21:29:34 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>https://frozoto1.github.io/categories/Test/</link>
-      <pubDate>Sat, 15 May 2021 21:29:34 +0800</pubDate>
-      
-      <guid>https://frozoto1.github.io/categories/Test/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sun, 03 May 2020 11:00:10 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>软件</title>
       <link>https://frozoto1.github.io/categories/%E8%BD%AF%E4%BB%B6/</link>
@@ -26,11 +17,38 @@
     </item>
     
     <item>
+      <title>BioInfor</title>
+      <link>https://frozoto1.github.io/categories/BioInfor/</link>
+      <pubDate>Thu, 30 Apr 2020 09:57:31 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/categories/BioInfor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>https://frozoto1.github.io/categories/Linux/</link>
       <pubDate>Thu, 30 Apr 2020 09:57:31 +0800</pubDate>
       
       <guid>https://frozoto1.github.io/categories/Linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://frozoto1.github.io/categories/R/</link>
+      <pubDate>Thu, 30 Apr 2020 09:57:31 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/categories/R/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://frozoto1.github.io/categories/Test/</link>
+      <pubDate>Wed, 29 Apr 2020 17:23:46 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/categories/Test/</guid>
       <description></description>
     </item>
     
