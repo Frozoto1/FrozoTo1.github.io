@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 穿云箭</title>
+    <link>https://frozoto1.github.io/tags/</link>
+    <description>Recent content in Tags on 穿云箭</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Apr 2020 09:57:31 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>shell</title>
+      <link>https://frozoto1.github.io/tags/shell/</link>
+      <pubDate>Thu, 30 Apr 2020 09:57:31 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://frozoto1.github.io/tags/Test/</link>
+      <pubDate>Wed, 29 Apr 2020 17:23:46 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/tags/Test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>乱七八糟</title>
+      <link>https://frozoto1.github.io/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/</link>
+      <pubDate>Wed, 29 Apr 2020 16:21:56 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>https://frozoto1.github.io/tags/awk/</link>
+      <pubDate>Wed, 29 Apr 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
