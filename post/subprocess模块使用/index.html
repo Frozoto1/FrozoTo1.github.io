@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>subprocess模块使用 - 穿云箭</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="穿云箭" /><meta name="description" content="Python subprocess模块的基本使用" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+
+
+<link rel="canonical" href="https://frozoto1.github.io/post/subprocess%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="subprocess模块使用" />
+<meta property="og:description" content="Python subprocess模块的基本使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://frozoto1.github.io/post/subprocess%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-16T13:39:44&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-16T13:39:44&#43;08:00" />
+
+<meta itemprop="name" content="subprocess模块使用">
+<meta itemprop="description" content="Python subprocess模块的基本使用"><meta itemprop="datePublished" content="2021-05-16T13:39:44&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-16T13:39:44&#43;08:00" />
+<meta itemprop="wordCount" content="1073">
+<meta itemprop="keywords" content="subprocess,package," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="subprocess模块使用"/>
+<meta name="twitter:description" content="Python subprocess模块的基本使用"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">穿云箭</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">穿云箭</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">subprocess模块使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-16 </span>
+        <div class="post-category">
+            <a href="/categories/Python/"> Python </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#subprocess-模块使用">subprocess 模块使用</a>
+      <ul>
+        <li><a href="#subprocess-run功能在python35被添加为官方推荐使用的子流程调用方法">subprocess run()功能在python3.5被添加，为官方推荐使用的子流程调用方法</a></li>
+        <li><a href="#subprocess使用示例">subprocess使用示例</a></li>
+        <li><a href="#示例参数说明">示例参数说明：</a></li>
+        <li><a href="#其他使用示例">其他使用示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>仰手接飞猱，俯身散马蹄。</p>
+<h1 id="python-subprocess">Python subprocess</h1>
+<h2 id="subprocess-模块使用">subprocess 模块使用</h2>
+<p><a href="https://docs.python.org/3/library/subprocess.html">官方文档</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/72829009">知乎专栏-python学习开发</a></p>
+<p>推荐使用python&gt;=3.6 , subprocess.run()</p>
+<h3 id="subprocess-run功能在python35被添加为官方推荐使用的子流程调用方法">subprocess run()功能在python3.5被添加，为官方推荐使用的子流程调用方法</h3>
+<blockquote>
+<p>subprocess.run(args, *, stdin=None, input=None, stdout=None, stderr=None, capture_output=False, shell=False, cwd=None, timeout=None, check=False, encoding=None, errors=None, text=None, env=None, universal_newlines=None)</p>
+</blockquote>
+<p>注: 以上参数不是在所有版本都适用的,比如capture_output在python3.7才被添加</p>
+<h3 id="subprocess使用示例">subprocess使用示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="kn">import</span> <span class="nn">subprocess</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">listl</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;ls -l&#39;</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">check</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/home/chengjiawen1/software&#39;</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stderr</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;eee.e&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">),</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span><span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;returncode:&#39;</span><span class="p">,</span><span class="n">listl</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span> <span class="c1">#listl.returncode获得程序运行的退出状态码</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;CMD stdout:&#39;</span><span class="p">,</span><span class="n">listl</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span> <span class="c1">#listl.stdout获得程序运行的标准输出</span>
+    <span class="c1">#输出结果：</span>
+    <span class="n">returncode</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">CMD</span> <span class="n">stdout</span><span class="p">:</span> <span class="s1">&#39;total 47136</span><span class="se">\n</span><span class="s1">drwxr-xr-x  6 chengjiawen1 bc_ccp      101 Aug 26 17:53 cgmaptools-0.1.2</span><span class="se">\n</span><span class="s1">drwxr-xr-x 11 chengjiawen1 bc_ccp     4096 Aug 22 21:24 lrzsz-0.12.20</span><span class="se">\n</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="示例参数说明">示例参数说明：</h3>
+<ul>
+<li>shell=True 子进程生成一个中间shell进程然后运行该命令，默认情况shell=False直接运行命令；当第一个命令参数为字符串时需要设置shell=True</li>
+<li>check=True 命令运行返回状态码非0，抛出CalledProcessError</li>
+<li>cwd 指的命令工作路径</li>
+<li>stdout 命令标准输出，可以输出到文件也可以为subprocess.PIPE[方便后续调用命令输出结果]</li>
+<li>stderr 命令标准错误输出， 可以输出到文件也可以为subprocess.PIPE</li>
+<li>encodeing=&lsquo;utf-8&rsquo; 指的输出编码方式[这个官方文档解释的清楚]</li>
+<li>timeout=1 指定命令timeout时间，单位为秒，超时会抛出TimeoutExpired异常</li>
+</ul>
+<p>subprocess.run的其他参数说明：</p>
+<ul>
+<li>capture_output=True 将会自动创建stdout=subprocess.PIPE和stderr=subprocess.PIPE，如果希望捕获合并标准输出与错误输出可以使用stdout=subprocess.PIPE和stderr=subprocess.STDOUT 【python3.7新增】</li>
+</ul>
+<h3 id="其他使用示例">其他使用示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span><span class="s1">&#39;-l&#39;</span><span class="p">],</span><span class="n">check</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="n">CompletedProcess</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">],</span> <span class="n">returncode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="s1">&#39;total 24</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp 211 Nov  7 20:22 a.yaml</span><span class="se">\n</span><span class="s1">-rwxr--r-- 1 chengjiawen1 bc_ccp 311 Nov  8 09:31 b.py</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp  12 Nov  7 20:23 b.yaml</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp   0 Nov  8 09:57 eee.e</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp  21 Nov  7 20:23 HAHA.yaml</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp   0 Nov  8 09:55 ls2.info</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp 635 Nov  8 09:42 ls.info</span><span class="se">\n</span><span class="s1">-rw-r--r-- 1 chengjiawen1 bc_ccp 490 Nov  7 20:23 shan</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">returncode</span>
+<span class="mi">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>双向通信</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">wcc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;wc&#39;</span><span class="p">,</span><span class="s1">&#39;-c&#39;</span><span class="p">],</span><span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hhh</span> <span class="o">=</span> <span class="s1">&#39;Hello oocarain&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordbyte</span> <span class="o">=</span> <span class="n">wcc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">hhh</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordbyte</span>
+<span class="s1">&#39;14</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+<span class="err">使用</span><span class="n">run方法更为简单</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;wc&#39;</span><span class="p">,</span><span class="s1">&#39;-c&#39;</span><span class="p">],</span><span class="n">check</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="nb">input</span><span class="o">=</span><span class="s2">&#34;Hello oocarain&#34;</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="n">CompletedProcess</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;wc&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">],</span> <span class="n">returncode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="s1">&#39;14</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1">#注 input输入参数被传递给Popen.communicate(),然后传递给子进程的stdin,并且内部会自动创建stdin=subprocess.PIPE,所以input和stdin两个参数不能同时使用</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>管道链接</p>
+<p>通过创建单独的Popen实例并将他们的stdin和stdout链接在一起,起到类似于linux shell的管道命令运算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;a.yaml&#39;</span><span class="p">],</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grep</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span><span class="s1">&#39;hello&#39;</span><span class="p">],</span><span class="n">stdin</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cut</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;awk&#39;</span><span class="p">,</span><span class="s1">&#39;-F&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="s1">&#39;{print $2}&#39;</span><span class="p">],</span><span class="n">stdin</span><span class="o">=</span><span class="n">grep</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">end_of_pipe</span> <span class="o">=</span> <span class="n">cut</span><span class="o">.</span><span class="n">stdout</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">end_of_pipe</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+ <span class="n">chengjiawen</span> <span class="c1">#hello</span>
+
+<span class="c1"># 以上操作相当于相当于: cat a.yaml | grep hello | awk -F : {print $2}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">穿云箭</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-05-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/subprocess/">subprocess</a>
+          <a href="/tags/package/">package</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/Tmux%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">Tmux配置与使用</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/Frozoto1/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/lovebingqian" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://frozoto1.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">穿云箭</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.f3982787498bde362e62b5de507d1714dc64c83a09ad4958598bce2c039150a5.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
