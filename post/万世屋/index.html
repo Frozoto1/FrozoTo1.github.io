@@ -50,7 +50,7 @@
 <meta itemprop="name" content="万世屋">
 <meta itemprop="description" content="遥闻深巷中犬吠，便有妇人惊觉欠伸，其夫呓语。——林嗣环《虞初新志》"><meta itemprop="datePublished" content="2020-04-29T16:21:56&#43;08:00" />
 <meta itemprop="dateModified" content="2020-04-29T16:21:56&#43;08:00" />
-<meta itemprop="wordCount" content="1076">
+<meta itemprop="wordCount" content="1021">
 <meta itemprop="keywords" content="乱七八糟," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="万世屋"/>
 <meta name="twitter:description" content="遥闻深巷中犬吠，便有妇人惊觉欠伸，其夫呓语。——林嗣环《虞初新志》"/>
@@ -139,14 +139,14 @@
     <li><a href="#q--a">Q &amp; A</a>
       <ul>
         <li><a href="#sam----bam-问题">sam &ndash;&gt; bam 问题</a></li>
-        <li><a href="#bsub在命令行提交存在管道和重定向的命令">bsub在命令行提交存在管道和重定向的命令</a></li>
-        <li><a href="#bsub指定节点">bsub指定节点</a></li>
-        <li><a href="#python-virtualenv-和-jupyter-notebook一起使用">Python virtualenv 和 Jupyter notebook一起使用</a></li>
-        <li><a href="#python-交互式模式下tab自动不全">python 交互式模式下Tab自动不全</a></li>
-        <li><a href="#ubuntu164-vim卸载以及安装vim80">Ubuntu16.4 vim卸载以及安装vim8.0</a></li>
+        <li><a href="#bsub-在命令行提交存在管道和重定向的命令">bsub 在命令行提交存在管道和重定向的命令</a></li>
+        <li><a href="#bsub-指定节点">bsub 指定节点</a></li>
+        <li><a href="#python-virtualenv-和-jupyter-notebook-一起使用">Python virtualenv 和 Jupyter notebook 一起使用</a></li>
+        <li><a href="#python-交互式模式下-tab-自动不全">python 交互式模式下 Tab 自动不全</a></li>
+        <li><a href="#ubuntu164-vim-卸载以及安装-vim80">Ubuntu16.4 vim 卸载以及安装 vim8.0</a></li>
         <li><a href="#blastn-output-format-6">blastn output format 6</a></li>
-        <li><a href="#blastn-short-reads序列比对">blastn short reads序列比对</a></li>
-        <li><a href="#python输出带颜色的文字">Python输出带颜色的文字</a></li>
+        <li><a href="#blastn-short-reads-序列比对">blastn short reads 序列比对</a></li>
+        <li><a href="#python-输出带颜色的文字">Python 输出带颜色的文字</a></li>
         <li><a href="#python-使用自定义模块">Python 使用自定义模块</a></li>
         <li><a href="#matplotlib-tight-layout-guide">matplotlib Tight Layout guide</a></li>
       </ul>
@@ -167,19 +167,19 @@
 [main_samview] truncated file.
 </code></pre>
 <p>解决：
-添加-t参数，提供参考基因组长度信息</p>
+添加-t 参数，提供参考基因组长度信息</p>
 <p><code>samtools view -t /gss1/home/jiawen/data/rice/tigr7.fa.fai -bS test.sam &gt; test.bam</code></p>
-<h3 id="bsub在命令行提交存在管道和重定向的命令">bsub在命令行提交存在管道和重定向的命令</h3>
-<p>通过-I参数解决</p>
-<p><code>bsub -n 1 -e test-e.log -I cut -f 2 test.sam | awk '$1==16' | wc -l 1&gt; test.txt</code></p>
-<h3 id="bsub指定节点">bsub指定节点</h3>
+<h3 id="bsub-在命令行提交存在管道和重定向的命令">bsub 在命令行提交存在管道和重定向的命令</h3>
+<p>通过-I 参数解决</p>
+<p><code>bsub -n 1 -e test-e.log -I cut -f 2 test.sam | awk '$1==16' | wc -l 1&gt; test.txt</code></p>
+<h3 id="bsub-指定节点">bsub 指定节点</h3>
 <p><code>bsub -m &quot;hostA hostD hostB&quot; myjob</code></p>
-<h3 id="python-virtualenv-和-jupyter-notebook一起使用">Python virtualenv 和 Jupyter notebook一起使用</h3>
+<h3 id="python-virtualenv-和-jupyter-notebook-一起使用">Python virtualenv 和 Jupyter notebook 一起使用</h3>
 <p><a href="https://anbasile.github.io/programming/2017/06/25/jupyter-venv/">快速配置</a></p>
 <p>具体如下：</p>
 <p><img src="http://ol8t44w0x.bkt.clouddn.com/blog/180701/2i4LC8BF8j.png?imageslim" alt="mark"></p>
 <p><a href="https://github.com/bhrutledge/jupyter-venv">更全面的配置过程</a></p>
-<h3 id="python-交互式模式下tab自动不全">python 交互式模式下Tab自动不全</h3>
+<h3 id="python-交互式模式下-tab-自动不全">python 交互式模式下 Tab 自动不全</h3>
 <p>创建~/.pythonstartup</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -223,7 +223,7 @@
 </div>
 </div><p>配置环境变量</p>
 <p><code>echo 'export PYTHONSTARTUP=~/.pythonstartup' &gt;&gt; ~/.bashrc</code></p>
-<h3 id="ubuntu164-vim卸载以及安装vim80">Ubuntu16.4 vim卸载以及安装vim8.0</h3>
+<h3 id="ubuntu164-vim-卸载以及安装-vim80">Ubuntu16.4 vim 卸载以及安装 vim8.0</h3>
 <h4 id="vim8">vim8</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -277,7 +277,7 @@ sudo make
 sudo make install
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="vim插件管理器vundle">vim插件管理器Vundle</h4>
+</div><h4 id="vim-插件管理器-vundle">vim 插件管理器 Vundle</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -396,13 +396,13 @@ qcovhsp   Query Coverage Per HSP
 -outfmt &#34;6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore&#34;
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="blastn-short-reads序列比对">blastn short reads序列比对</h3>
-<p>blastn在进行short reads序列比对的时候，即使存在
+</div><h3 id="blastn-short-reads-序列比对">blastn short reads 序列比对</h3>
+<p>blastn 在进行 short reads 序列比对的时候，即使存在
 可以比对上的序列也不会输出，此时需要添加 <code>-task blastn-short</code> 参数，如下：</p>
 <p><img src="http://ol8t44w0x.bkt.clouddn.com/blog/180719/12iej5dDh3.png?imageslim" alt="mark"></p>
-<h3 id="python输出带颜色的文字">Python输出带颜色的文字</h3>
+<h3 id="python-输出带颜色的文字">Python 输出带颜色的文字</h3>
 <p>格式: <code>\033[显示方式;前景色;背景色m Your STRING \033[0m</code></p>
-<p>注:显示方式,前景色,背景色至少存在一个，最后的紧跟其后的m不可少,通过<code>\033[0m 采用终端默认设置，即取消颜色设置</code></p>
+<p>注:显示方式,前景色,背景色至少存在一个，最后的紧跟其后的 m 不可少,通过<code>\033[0m 采用终端默认设置，即取消颜色设置</code></p>
 <table>
 <thead>
 <tr>
@@ -490,7 +490,7 @@ qcovhsp   Query Coverage Per HSP
 </table>
 <h3 id="python-使用自定义模块">Python 使用自定义模块</h3>
 <p>假设我们有一个<code>hellojiawen.py</code>的脚本在<code>~/xxx</code>目录下，
-我们想在其他脚本中使用其中的hello函数</p>
+我们想在其他脚本中使用其中的 hello 函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

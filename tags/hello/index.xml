@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>test on 穿云箭</title>
-    <link>https://frozoto1.github.io/categories/test/</link>
-    <description>Recent content in test on 穿云箭</description>
+    <title>hello on 穿云箭</title>
+    <link>https://frozoto1.github.io/tags/hello/</link>
+    <description>Recent content in hello on 穿云箭</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Jun 2021 21:30:42 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 21:30:42 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/tags/hello/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello</title>
       <link>https://frozoto1.github.io/post/hello/</link>
