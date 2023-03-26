@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>环境 on 穿云箭</title>
+    <link>https://frozoto1.github.io/tags/%E7%8E%AF%E5%A2%83/</link>
+    <description>Recent content in 环境 on 穿云箭</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 26 Mar 2023 13:52:17 +0800</lastBuildDate><atom:link href="https://frozoto1.github.io/tags/%E7%8E%AF%E5%A2%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python poetry使用</title>
+      <link>https://frozoto1.github.io/post/python_poetry%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 26 Mar 2023 13:52:17 +0800</pubDate>
+      
+      <guid>https://frozoto1.github.io/post/python_poetry%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;python poetry使用&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
